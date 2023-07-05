@@ -1,0 +1,50 @@
+plugins {
+    id "java"
+    id "idea"
+    id "project-report"
+    id "java-library"
+    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
+}
+
+group = "red.ponder.mybatis.plugin"
+version = "0.0.1-SNAPSHOT"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+sourceSets {
+    main {
+        java {
+            srcDir "src/java"
+        }
+        resources {
+            srcDir "src/resources"
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.mybatis.generator:mybatis-generator-core:1.4.2'
+    implementation 'org.mybatis:mybatis:3.5.13'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
