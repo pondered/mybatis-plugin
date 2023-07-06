@@ -1,6 +1,5 @@
 package red.ponder.mybatis.plugin.util
 
-import jdk.internal.joptsimple.internal.Strings
 import java.io.File
 
 /**
